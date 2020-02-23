@@ -51,11 +51,15 @@ namespace Bronya
 
 
             //Mover
-            if (Input.GetAxis("Horizontal") != 0)
+            if (/*Input.GetAxis("Horizontal") != 0*/ true)
             {
                 Vector2 vel = new Vector2(Input.GetAxis("Horizontal") * velMov, master.rigidbody2D.velocity.y);
                 master.rigidbody2D.velocity = vel;
             }
+
+            //Cambiar direccion
+            if (Input.GetAxis("Horizontal") > 0f) transform.localScale = new Vector3(1, 1, 1); //Right
+            else if (Input.GetAxis("Horizontal") < 0f) transform.localScale = new Vector3(-1, 1, 1); //Left
 
             //Saltar
             if (grounded && Input.GetKeyDown(KeyCode.Space))

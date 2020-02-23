@@ -18987,6 +18987,11 @@ PrefabInstance:
       propertyPath: m_Size.x
       value: 2.3747761
       objectReference: {fileID: 0}
+    - target: {fileID: 6359737314587122103, guid: d89507136668fd74fa7c66a812889209,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 612e7b149b9aeb849958c396e9ccb47c, type: 2}
     - target: {fileID: 6359737314060530302, guid: d89507136668fd74fa7c66a812889209,
         type: 3}
       propertyPath: velMov
