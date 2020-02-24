@@ -666,7 +666,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 366cb0149a2d1ae4fa6b257e4c65c953, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -975,6 +975,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   velJump: 4.5
   velMov: 3
+  distanceDash: 5
+  DashCollision:
+    serializedVersion: 2
+    m_Bits: 4294967295
   master: {fileID: 6359737313132755673}
 --- !u!1 &6359737314353214061
 GameObject:

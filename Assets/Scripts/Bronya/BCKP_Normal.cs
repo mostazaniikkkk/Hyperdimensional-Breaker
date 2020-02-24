@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Bronya
 {
-    public class Normal : MonoBehaviour
+    public class BCKP_Normal : MonoBehaviour
     {
         bool grounded = false;
         public float velJump = 4.5f;
