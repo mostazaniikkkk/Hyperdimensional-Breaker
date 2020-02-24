@@ -60,9 +60,10 @@ namespace Bronya
             }
 
             //Cambiar direccion
-            float valueScale = 1f;
-            if (Input.GetAxis("Horizontal") > 0f) transform.localScale = new Vector3(1, 1, 1) * valueScale; //Right
-            else if (Input.GetAxis("Horizontal") < 0f) transform.localScale = new Vector3(-1, 1, 1) * valueScale; //Left
+            Vector3 scale = transform.localScale;
+            if (Input.GetAxis("Horizontal") > 0f && scale.x < 0)  scale.x = -scale.x; //Right
+            else if (Input.GetAxis("Horizontal") < 0f && scale.x > 0) scale.x = -scale.x; //Left
+            transform.localScale = scale;
 
             //Saltar
             if (grounded && Input.GetKeyDown(KeyCode.Space))
@@ -79,9 +80,12 @@ namespace Bronya
                 BoxCollider2D coll = master.boxCollider;
                 Vector2 direction = new Vector2(transform.localScale.x, 0).normalized;
                 Vector2 addPosition;
+                Vector2 size = coll.size;
+                size.x *= master.transform.localScale.x;
+                size.y *= master.transform.localScale.y;
 
                 //RaycastHit2D[] hits = Physics2D.BoxCastAll((Vector2)coll.transform.position + coll.offset, coll.size, 0, direction, distanceDash, DashCollision);
-                RaycastHit2D hit = Physics2D.BoxCast((Vector2)coll.transform.position + coll.offset, coll.size * 0.95f, 0, direction, distanceDash, DashCollision);
+                RaycastHit2D hit = Physics2D.BoxCast((Vector2)coll.transform.position + coll.offset, size * 0.95f, 0, direction, distanceDash, DashCollision);
                 if (hit == false) addPosition = direction.normalized * distanceDash;
                 else addPosition = direction.normalized * hit.distance;
                 Debug.Log("Add position: " + addPosition);

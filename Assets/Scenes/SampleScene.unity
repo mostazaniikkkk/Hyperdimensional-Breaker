@@ -22288,6 +22288,11 @@ PrefabInstance:
       propertyPath: velJump
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 6359737314060530302, guid: d89507136668fd74fa7c66a812889209,
+        type: 3}
+      propertyPath: DashCollision.m_Bits
+      value: 1847
+      objectReference: {fileID: 0}
     - target: {fileID: 6359737314587122102, guid: d89507136668fd74fa7c66a812889209,
         type: 3}
       propertyPath: m_LocalPosition.z
@@ -22302,6 +22307,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6359737314587122089, guid: d89507136668fd74fa7c66a812889209,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6359737314060530293, guid: d89507136668fd74fa7c66a812889209, type: 3}
