@@ -51,6 +51,14 @@ namespace Bronya
             }
             grounded = temp_isGrounded;
 
+            //Salto muerto
+            if (Input.GetKeyUp(KeyCode.Space) && !grounded){
+                if (master.rigidbody2D.velocity.y > 0){
+                    Vector2 vel = master.rigidbody2D.velocity;
+                    vel.y = 0;
+                    master.rigidbody2D.velocity = vel;
+                }
+            }
 
             //Mover
             if (/*Input.GetAxis("Horizontal") != 0*/ true)
