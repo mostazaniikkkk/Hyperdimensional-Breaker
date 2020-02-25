@@ -13,4 +13,5 @@ public class Config
     public float dash_boostDistance = 5f;
     public float dash_normal_coolDown = 2f;
     public float dash_boost_coolDown = .5f;
+    public float dash_auxTime = -1;
 }

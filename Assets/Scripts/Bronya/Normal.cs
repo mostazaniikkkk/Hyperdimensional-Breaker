@@ -9,7 +9,7 @@ namespace Bronya
 
         bool grounded = false;
         public float velJump = 4.5f;
-        public float dash_auxTime = -1;
+        
         public LayerMask DashCollision = -1;
         public Master master;
 
@@ -17,6 +17,7 @@ namespace Bronya
         private void OnEnable()
         {
             master.rigidbody2D.gravityScale = 1;
+            master.config.dash_auxTime = -1;
         }
 
         private void Update()
@@ -86,9 +87,9 @@ namespace Bronya
             }
             
             //Dash
-            if (Input.GetKeyDown(KeyCode.LeftShift) && dash_auxTime < Time.time)
+            if (Input.GetKeyDown(KeyCode.LeftShift) && master.config.dash_auxTime < Time.time)
             {
-                dash_auxTime = Time.time + master.config.dash_normal_coolDown;
+                master.config.dash_auxTime = Time.time + master.config.dash_normal_coolDown;
                 Debug.Log("Dash");
                 BoxCollider2D coll = master.boxCollider;
                 Vector2 direction = new Vector2(transform.localScale.x, 0).normalized;

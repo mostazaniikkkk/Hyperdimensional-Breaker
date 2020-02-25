@@ -9,10 +9,11 @@ namespace Bronya
         float timeLimit;
         public Master master;
 
-        private void OnEnable()
+        private void Start()
         {
             timeLimit = Time.time + master.stats.GetBoostTime;
             master.rigidbody2D.gravityScale = 0;
+            master.config.dash_auxTime = -1;
         }
         private void Update()
         {
