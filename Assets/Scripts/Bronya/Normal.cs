@@ -6,12 +6,13 @@ namespace Bronya
 {
     public class Normal : MonoBehaviour
     {
+
         bool grounded = false;
         public float velJump = 4.5f;
-        //public float velMov = 3f;
-        //public float distanceDash = 5f;
+        public float dash_auxTime = -1;
         public LayerMask DashCollision = -1;
         public Master master;
+
 
         private void OnEnable()
         {
@@ -77,13 +78,17 @@ namespace Bronya
             if (grounded && Input.GetKeyDown(KeyCode.Space))
             {
                 Vector2 vel = master.rigidbody2D.velocity;
-                vel += Vector2.up * velJump;
+                float h = master.config.jump_maxHeight;
+                float dVel = (2*h)/Mathf.Sqrt(Mathf.Abs(2*h/Physics2D.gravity.y));
+                vel += Vector2.up * dVel;
                 master.rigidbody2D.velocity = vel;
-            }
 
+            }
+            
             //Dash
-            if (Input.GetKeyDown(KeyCode.LeftShift))
+            if (Input.GetKeyDown(KeyCode.LeftShift) && dash_auxTime < Time.time)
             {
+                dash_auxTime = Time.time + master.config.dash_normal_coolDown;
                 Debug.Log("Dash");
                 BoxCollider2D coll = master.boxCollider;
                 Vector2 direction = new Vector2(transform.localScale.x, 0).normalized;
