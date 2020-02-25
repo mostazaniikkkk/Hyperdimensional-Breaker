@@ -12,6 +12,7 @@ namespace Bronya
         public Normal normal;
         public Boost boost;
         public Stats stats;
+        public Config config;
 
         protected void Awake()
         {

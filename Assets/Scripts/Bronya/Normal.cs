@@ -8,8 +8,8 @@ namespace Bronya
     {
         bool grounded = false;
         public float velJump = 4.5f;
-        public float velMov = 3f;
-        public float distanceDash = 5f;
+        //public float velMov = 3f;
+        //public float distanceDash = 5f;
         public LayerMask DashCollision = -1;
         public Master master;
 
@@ -55,7 +55,7 @@ namespace Bronya
             //Mover
             if (/*Input.GetAxis("Horizontal") != 0*/ true)
             {
-                Vector2 vel = new Vector2(Input.GetAxis("Horizontal") * velMov, master.rigidbody2D.velocity.y);
+                Vector2 vel = new Vector2(Input.GetAxis("Horizontal") * master.config.walk_velocity, master.rigidbody2D.velocity.y);
                 master.rigidbody2D.velocity = vel;
             }
 
@@ -85,8 +85,8 @@ namespace Bronya
                 size.y *= master.transform.localScale.y;
 
                 //RaycastHit2D[] hits = Physics2D.BoxCastAll((Vector2)coll.transform.position + coll.offset, coll.size, 0, direction, distanceDash, DashCollision);
-                RaycastHit2D hit = Physics2D.BoxCast((Vector2)coll.transform.position + coll.offset, size * 0.95f, 0, direction, distanceDash, DashCollision);
-                if (hit == false) addPosition = direction.normalized * distanceDash;
+                RaycastHit2D hit = Physics2D.BoxCast((Vector2)coll.transform.position + coll.offset, size * 0.95f, 0, direction, master.config.dash_normalDistance, DashCollision);
+                if (hit == false) addPosition = direction.normalized * master.config.dash_normalDistance;
                 else addPosition = direction.normalized * hit.distance;
                 Debug.Log("Add position: " + addPosition);
                 //Debug.Log("Hit: " + hit.collider.name);
