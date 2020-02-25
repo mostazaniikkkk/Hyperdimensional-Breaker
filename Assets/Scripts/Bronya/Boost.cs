@@ -6,7 +6,7 @@ namespace Bronya
 {
     public class Boost : MonoBehaviour
     {
-        float timeLimit;
+        public float timeLimit;
         public Master master;
 
         private void Start()
