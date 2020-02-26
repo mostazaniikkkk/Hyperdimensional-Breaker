@@ -447,7 +447,7 @@ GameObject:
   - component: {fileID: 522314445}
   - component: {fileID: 522314448}
   - component: {fileID: 522314447}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -622,16 +622,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3507684574743587798, guid: 10e582175bb5cae4086c41d83ce7435b,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -22.28
-      objectReference: {fileID: 0}
-    - target: {fileID: 3507684574743587799, guid: 10e582175bb5cae4086c41d83ce7435b,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 10e582175bb5cae4086c41d83ce7435b, type: 3}
