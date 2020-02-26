@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6359737312936771623}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: BG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6359737313053818008}
   - component: {fileID: 6359737313053818009}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -132,7 +132,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6359737313126405042}
   - component: {fileID: 6359737313126405043}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Point Light (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -226,7 +226,7 @@ GameObject:
   - component: {fileID: 6359737313132755672}
   - component: {fileID: 6359737313132755686}
   - component: {fileID: 5870312460269600392}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Character
   m_TagString: Untagged
   m_Icon: {fileID: 2800000, guid: 35ad22872d45c1a4f8657acf1cffc100, type: 3}
@@ -346,7 +346,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6359737313505471569}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Lights
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -381,7 +381,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6359737313599620587}
   - component: {fileID: 6359737313599620586}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: lifebar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -462,7 +462,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6359737313624635365}
   - component: {fileID: 6359737313624635362}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Point Light (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -553,7 +553,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6359737313624812956}
   - component: {fileID: 6359737313624812957}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Point Light (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -648,7 +648,7 @@ GameObject:
   - component: {fileID: 6359737313998947565}
   - component: {fileID: 6359737313998947564}
   - component: {fileID: 6359737313998947567}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Char Boost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -776,7 +776,7 @@ GameObject:
   - component: {fileID: 6359737314032634484}
   - component: {fileID: 989004622}
   - component: {fileID: 726442617}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -883,7 +883,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6359737314044620174}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Clouds
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -918,7 +918,7 @@ GameObject:
   - component: {fileID: 6359737314060530290}
   - component: {fileID: 6359737314060530289}
   - component: {fileID: 6359737314060530302}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Char Normal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1030,7 +1030,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6359737314353214058}
   - component: {fileID: 6359737314353214059}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Portrait
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1112,7 +1112,7 @@ GameObject:
   - component: {fileID: 6359737314357568718}
   - component: {fileID: 6359737314357568705}
   - component: {fileID: 6359737314357568704}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Sky
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1234,7 +1234,7 @@ CapsuleCollider2D:
   m_GameObject: {fileID: 6359737314587122089}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 612e7b149b9aeb849958c396e9ccb47c, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -1253,7 +1253,7 @@ GameObject:
   - component: {fileID: 6359737314725541507}
   - component: {fileID: 6359737314725541506}
   - component: {fileID: 6359737314725541509}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1344,7 +1344,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6359737314837630011}
   - component: {fileID: 6359737314837630008}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: cloud
   m_TagString: Untagged
   m_Icon: {fileID: 0}
