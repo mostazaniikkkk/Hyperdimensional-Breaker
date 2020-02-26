@@ -8,7 +8,7 @@ namespace Bronya
     {
 
         bool grounded = false;
-        public float velJump = 4.5f;
+        //public float velJump = 4.5f;
         
         public LayerMask DashCollision = -1;
         public Master master;

@@ -7,7 +7,7 @@ namespace Bronya
 
     public class Master : MonoBehaviour
     {
-        public BoxCollider2D boxCollider;
+        //public BoxCollider2D boxCollider;
         public CapsuleCollider2D capCollider;
         public Rigidbody2D rigidbody2D;
         public Normal normal;
