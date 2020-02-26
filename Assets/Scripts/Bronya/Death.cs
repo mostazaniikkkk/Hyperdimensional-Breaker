@@ -2,17 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Death : MonoBehaviour
+namespace Bronya
 {
-    // Start is called before the first frame update
-    void Start()
+    public class Death : MonoBehaviour
     {
-        
-    }
+        public Master master;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        private void Start()
+        {
+            master.stats.Death += DeathAccion;
+        }
+
+        void DeathAccion()
+        {
+            UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+        }
     }
 }
