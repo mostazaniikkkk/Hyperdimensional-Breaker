@@ -32,7 +32,7 @@ namespace Bronya
                     //Gastar el boost
                     master.stats.UseBoost();
                     //Active Boost cambiando gameObjects
-                    master.SetActiveModeBoost(true);
+                    //master.SetActiveModeBoost(true);
                     return;
                 }
             }
