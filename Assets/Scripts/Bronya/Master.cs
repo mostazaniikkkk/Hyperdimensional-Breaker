@@ -14,6 +14,7 @@ namespace Bronya
         public Boost boost;
         public Stats stats;
         public Config config;
+        public BAttack attack;
 
         protected void Awake()
         {

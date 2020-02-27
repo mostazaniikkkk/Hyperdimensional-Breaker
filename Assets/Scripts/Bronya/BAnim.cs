@@ -25,7 +25,7 @@ namespace Bronya
             //Fire
 
 
-            
+            animator.SetBool(fireParameter, master.attack.onAttack);
         }
     }
 }
