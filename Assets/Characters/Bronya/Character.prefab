@@ -79,7 +79,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3751723619219121311}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.82, y: 5.82, z: -12.48}
+  m_LocalPosition: {x: 0.36, y: -1.23, z: -3.98}
   m_LocalScale: {x: 1.5000049, y: 1, z: 1.5000023}
   m_Children: []
   m_Father: {fileID: 6359737314060530288}
@@ -139,7 +139,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3751723619219121311}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 593cfc19bfdf4084da45804fe0ae95dd, type: 2}
   m_CullingMode: 0
@@ -157,7 +157,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3751723619219121311}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2a5dd951ef62ed54eac2b87fdef95238, type: 3}
   m_Name: 
@@ -395,6 +395,7 @@ GameObject:
   - component: {fileID: 5870312460269600392}
   - component: {fileID: 508659345434937857}
   - component: {fileID: 6493492635175286400}
+  - component: {fileID: 2159238405144597571}
   m_Layer: 11
   m_Name: Character
   m_TagString: Untagged
@@ -450,6 +451,7 @@ MonoBehaviour:
     dash_normal_coolDown: 2
     dash_boost_coolDown: 0.5
     dash_auxTime: -1
+  attack: {fileID: 2159238405144597571}
 --- !u!114 &6359737313132755672
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -535,6 +537,23 @@ MonoBehaviour:
   animator: {fileID: 6359737314060530289}
   fireParameter: fire
   walkParameter: walk
+--- !u!114 &2159238405144597571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6359737313132755674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45136db388d32dc4baf6e25f7939d431, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  robot: {fileID: 3751723619219121311}
+  time_robotActive: 2
+  coolDownFire: 0.3
+  buttonAttack: 306
+  onAttack: 0
 --- !u!1 &6359737313505471568
 GameObject:
   m_ObjectHideFlags: 0
