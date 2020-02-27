@@ -7,7 +7,7 @@ namespace Bronya
     public class Normal : MonoBehaviour
     {
 
-        bool grounded = false;
+        public bool grounded = false;
         //public float velJump = 4.5f;
         
         public LayerMask DashCollision = -1;
