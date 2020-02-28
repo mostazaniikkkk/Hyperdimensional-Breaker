@@ -558,7 +558,8 @@ MonoBehaviour:
   aim: {fileID: 7237073941990311605}
   bullet: {fileID: 2935903557424344183, guid: f4cf0b3f614be474b8b5f11ee1b76ae5, type: 3}
   velAttack: 5
-  scale: 10
+  scale: 1
+  master: {fileID: 6359737313132755673}
 --- !u!1 &6359737313505471568
 GameObject:
   m_ObjectHideFlags: 0
