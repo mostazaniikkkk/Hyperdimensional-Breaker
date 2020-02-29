@@ -22,7 +22,7 @@ namespace Bronya
         protected void Awake()
         {
             SetActiveModeBoost(false);
-            if (instance == null)
+            if (instance != null)
                 Debug.LogWarning("Hay 2 Master de Bronya.");
             instance = this;
         }

@@ -8,11 +8,15 @@ namespace EnemyMaster0
     {
         bool alert = false;
         float time_TimeLost = float.MinValue;
+        float time_coolDown = float.MinValue;
         [Min(1)] public float distanceDetection = 10;
         [Min(1)] public float maxTimeLost = 5;
+        [Min(1)]public float damage = 20;
+        [Min(1)] public float coolDown = 1;
         [Header("Components")]
         public Rigidbody2D rigid2D;
         public CapsuleCollider2D capCollider;
+        public SphereDetection detectionBronya;
 
         
 
@@ -63,6 +67,22 @@ namespace EnemyMaster0
             }
 
             //Ir hacia el enemygo o atacar
+            RaycastHit2D[] hits = detectionBronya.Get();
+            if (hits == null || hits.Length == 0)
+            {
+                Move(positionBronya);
+            }
+            else
+            {
+                if (Time.time > time_coolDown)
+                {
+                    foreach (RaycastHit2D hit in hits)
+                    {
+                        hit.collider.transform.root.GetComponent<Bronya.Master>()?.stats.Damage(damage);
+                    }
+                    time_coolDown = Time.time + coolDown;
+                }
+            }
 
         }
 
