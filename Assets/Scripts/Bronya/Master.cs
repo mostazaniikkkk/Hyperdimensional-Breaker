@@ -16,9 +16,20 @@ namespace Bronya
         public Config config;
         public BAttack attack;
 
+        //singleton
+        public static Master instance;
+
         protected void Awake()
         {
             SetActiveModeBoost(false);
+            if (instance == null)
+                Debug.LogWarning("Hay 2 Master de Bronya.");
+            instance = this;
+        }
+
+        private void OnDestroy()
+        {
+            if (instance == this) instance = null;
         }
 
         private void Update()
