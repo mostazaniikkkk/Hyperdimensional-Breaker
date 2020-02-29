@@ -44,13 +44,22 @@ namespace EnemyMaster0
             }
 
             //Mirar
+            Vector3 scale = transform.localScale;
             if (positionBronya.x - transform.position.x > 0)
             {
-                //mirar derecha
+                if (scale.x < 0)
+                {
+                    scale.x = -scale.x;
+                    transform.localScale = scale;
+                }
             }
             else
             {
-                //mirar izquierda
+                if (scale.x > 0)
+                {
+                    scale.x = -scale.x;
+                    transform.localScale = scale;
+                }
             }
 
             //Ir hacia el enemygo o atacar
@@ -70,6 +79,11 @@ namespace EnemyMaster0
             }
 
             //Quieto o moviendoce
+        }
+
+        void Move(Vector2 dir)
+        {
+            
         }
 
         #region Other Methods
