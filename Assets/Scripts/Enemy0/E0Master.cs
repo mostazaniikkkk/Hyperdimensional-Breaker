@@ -7,18 +7,24 @@ namespace EnemyMaster0
     public class E0Master : MonoBehaviour
     {
         bool alert = false;
+        bool grounded = false;
         float time_TimeLost = float.MinValue;
         float time_coolDown = float.MinValue;
+
         [Min(1)] public float distanceDetection = 10;
         [Min(1)] public float maxTimeLost = 5;
-        [Min(1)]public float damage = 20;
+        [Min(1)] public float damage = 20;
         [Min(1)] public float coolDown = 1;
+        [Min(0.1f)] public float velocity;
+        public DetectGround detectGround;
+
+
         [Header("Components")]
         public Rigidbody2D rigid2D;
         public CapsuleCollider2D capCollider;
         public SphereDetection detectionBronya;
 
-        
+
 
         private void Update()
         {
@@ -27,6 +33,11 @@ namespace EnemyMaster0
                 Alert();
             else
                 NoAlert();
+        }
+
+        private void OnDrawGizmosSelected()
+        {
+            detectGround.Gizmo(transform, transform.localScale.x >= 0);
         }
 
         void Alert()
@@ -101,13 +112,97 @@ namespace EnemyMaster0
             //Quieto o moviendoce
         }
 
-        void Move(Vector2 dir)
+        void Move(Vector2 obj)
         {
-            
+            float dirx = (obj - (Vector2)transform.position).x;
+            NormalizeFloat(ref dirx);
+
+            //Mirar
+            Vector3 scale = transform.localScale;
+            if (dirx > 0)
+            {
+                if (scale.x < 0)
+                {
+                    scale.x = -scale.x;
+                    transform.localScale = scale;
+                }
+            }
+            else
+            {
+                if (scale.x > 0)
+                {
+                    scale.x = -scale.x;
+                    transform.localScale = scale;
+                }
+            }
+
+            //Revisar terreno
+            if (dirx != 0 && detectGround.Detect(transform, dirx > 0))
+            {
+                Vector2 vel = rigid2D.velocity;
+                vel.x = dirx * velocity;
+                rigid2D.velocity = vel;
+            }
+            else
+            {
+                Vector2 vel = rigid2D.velocity;
+                vel.x = 0;
+                rigid2D.velocity = vel;
+            }
+
         }
 
         #region Other Methods
         void UpdateTimeLost() => time_TimeLost = Time.time + maxTimeLost;
+        void NormalizeFloat(ref float x)
+        {
+            if (x > 0f) x = 1;
+            else if (x < 0f) x = -1;
+            else x = 0;
+        }
+        #endregion
+
+        #region Clases
+        [System.Serializable]
+        public class DetectGround
+        {
+            public LayerMask layerGround;
+            public float distanceDetectGroundHorizontal = 0.3f;
+            public float distanceDetectGroundVertical = 0.3f;
+            public Vector2 offset = new Vector2(0, 0);
+
+            public bool Detect(Transform transform, bool right)
+            {
+                Vector2 origin = (Vector2)transform.position + offset;
+                Vector2 direction = right? Vector2.right : Vector2.left;
+                
+                RaycastHit2D hit = Physics2D.Raycast(origin, direction, distanceDetectGroundHorizontal, layerGround);
+                if (hit.collider != null) return false;
+
+                origin = origin + direction * distanceDetectGroundHorizontal;
+                direction = Vector2.down;
+
+                hit = Physics2D.Raycast(origin, direction, distanceDetectGroundVertical, layerGround);
+                if (hit.collider != null) return true;
+
+                return false;
+            }
+
+            public void Gizmo(Transform transform, bool right)
+            {
+                Vector2 origin = (Vector2)transform.position + offset;
+                Vector2 direction = right ? Vector2.right : Vector2.left;
+
+                Gizmos.color = Color.magenta;
+                Gizmos.DrawLine(origin, origin + direction * distanceDetectGroundHorizontal);
+
+                origin = origin + direction * distanceDetectGroundHorizontal;
+                direction = Vector2.down;
+
+                Gizmos.DrawLine(origin, origin + direction * distanceDetectGroundVertical);
+            }
+        }
+
         #endregion
     }
 }

@@ -52,6 +52,14 @@ MonoBehaviour:
   maxTimeLost: 5
   damage: 20
   coolDown: 1
+  velocity: 2
+  detectGround:
+    layerGround:
+      serializedVersion: 2
+      m_Bits: 1
+    distanceDetectGroundHorizontal: 0.48
+    distanceDetectGroundVertical: 1
+    offset: {x: 0, y: 0}
   rigid2D: {fileID: 4026167586409250999}
   capCollider: {fileID: 6064923620003230189}
   detectionBronya: {fileID: 5907090216967151542}
@@ -85,7 +93,7 @@ CapsuleCollider2D:
   m_GameObject: {fileID: 3633893391516027219}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 612e7b149b9aeb849958c396e9ccb47c, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
