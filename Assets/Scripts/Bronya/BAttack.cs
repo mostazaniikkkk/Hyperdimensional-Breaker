@@ -18,6 +18,7 @@ namespace Bronya
         public float velAttack = 5f;
         public float scale = 10;
         public Master master;
+        public float damage = 30;
 
         private void Update()
         {
@@ -56,6 +57,7 @@ namespace Bronya
                 float scale = obj.transform.localScale.x;
                 obj.transform.localScale = new Vector3(-1, 1, 1) * scale;
             }
+            obj.GetComponent<Bullet>()?.SetDamage(damage);
             //obj.transform.localScale *= scale;
         }
     }
