@@ -18,6 +18,11 @@ namespace EnemyMaster0
         [Min(0.1f)] public float velocity;
         public DetectGround detectGround;
 
+        [Header("Animation")]
+        public Animator animator;
+        public string parameterWalk = "Walk";
+        public string parameterAlert = "Alert";
+        public string parameterAttack = "Attack";
 
         [Header("Components")]
         public Rigidbody2D rigid2D;
@@ -29,6 +34,7 @@ namespace EnemyMaster0
         private void Update()
         {
             if (Bronya.Master.instance == null) return;
+            animator.SetBool(parameterAlert, alert);
             if (alert)
                 Alert();
             else
@@ -87,6 +93,7 @@ namespace EnemyMaster0
             {
                 if (Time.time > time_coolDown)
                 {
+                    animator.SetTrigger(parameterAttack);
                     foreach (RaycastHit2D hit in hits)
                     {
                         hit.collider.transform.root.GetComponent<Bronya.Master>()?.stats.Damage(damage);
@@ -142,12 +149,14 @@ namespace EnemyMaster0
                 Vector2 vel = rigid2D.velocity;
                 vel.x = dirx * velocity;
                 rigid2D.velocity = vel;
+                animator.SetBool(parameterWalk, true);
             }
             else
             {
                 Vector2 vel = rigid2D.velocity;
                 vel.x = 0;
                 rigid2D.velocity = vel;
+                animator.SetBool(parameterWalk, false);
             }
 
         }

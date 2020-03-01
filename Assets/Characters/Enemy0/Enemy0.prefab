@@ -60,6 +60,10 @@ MonoBehaviour:
     distanceDetectGroundHorizontal: 0.48
     distanceDetectGroundVertical: 1
     offset: {x: 0, y: 0}
+  animator: {fileID: 9166065318324041868}
+  parameterWalk: Walk
+  parameterAlert: Alert
+  parameterAttack: Attack
   rigid2D: {fileID: 4026167586409250999}
   capCollider: {fileID: 6064923620003230189}
   detectionBronya: {fileID: 5907090216967151542}
@@ -93,7 +97,7 @@ CapsuleCollider2D:
   m_GameObject: {fileID: 3633893391516027219}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 612e7b149b9aeb849958c396e9ccb47c, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -110,7 +114,7 @@ Animator:
   m_GameObject: {fileID: 3633893391516027219}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: de3c2b0bb5bbce14b9cb4c4bb3c62736, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
