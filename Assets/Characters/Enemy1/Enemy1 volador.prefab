@@ -84,6 +84,9 @@ MonoBehaviour:
   coolDown: 3
   velocity: 0.5
   distanciaBronya: {x: 4, y: 2}
+  bullet: {fileID: 3303853139356132465, guid: 83569be02b47e5442bcfdb91ae580c19, type: 3}
+  velocityBullet: 4
+  AIM: {fileID: 7822750044338165542}
   animator: {fileID: 830994678896821564}
   parameterAttack: Attack
   rigid2D: {fileID: 3941185912103352634}
@@ -230,7 +233,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7822750044338165542}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.285, y: 0.212, z: 0}
+  m_LocalPosition: {x: 0.094, y: 0.212, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4337976230919400819}

@@ -15,6 +15,9 @@ public class E1Master : MonoBehaviour
     [Min(1)] public float coolDown = 1;
     [Min(0.1f)] public float velocity;
     public Vector2 distanciaBronya = new Vector2(4, 2);
+    public GameObject bullet;
+    public float velocityBullet = 4;
+    public GameObject AIM;
     
 
     [Header("Animation")]
@@ -143,17 +146,18 @@ public class E1Master : MonoBehaviour
 
         rigid2D.velocity = dir * velocity;
 
-
-
-
-
-
-
     }
 
     void Attack(Vector2 position)
     {
-
+        Vector2 dir = position - (Vector2)transform.position;
+        dir.Normalize();
+        dir *= velocityBullet;
+        GameObject obj = Instantiate(bullet, AIM.transform.position, Quaternion.identity);
+        obj.transform.right = dir.normalized;
+        obj.transform.Rotate(Vector3.right, -90, Space.Self);
+        obj.GetComponent<Rigidbody2D>().velocity = dir;
+        obj.GetComponent<Bullet>()?.SetDamage(damage);
     }
 
     #region Other Methods
