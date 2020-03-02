@@ -14,35 +14,28 @@ public class E1Master : MonoBehaviour
     [Min(1)] public float damage = 20;
     [Min(1)] public float coolDown = 1;
     [Min(0.1f)] public float velocity;
-    public DetectGround detectGround;
+    public Vector2 distanciaBronya = new Vector2(4, 2);
+    
 
     [Header("Animation")]
     public Animator animator;
-    public string parameterWalk = "Walk";
-    public string parameterAlert = "Alert";
     public string parameterAttack = "Attack";
 
     [Header("Components")]
     public Rigidbody2D rigid2D;
     public CapsuleCollider2D capCollider;
-    public SphereDetection detectionBronya;
 
 
 
     private void Update()
     {
         if (Bronya.Master.instance == null) return;
-        animator.SetBool(parameterAlert, alert);
         if (alert)
             Alert();
         else
             NoAlert();
     }
 
-    private void OnDrawGizmosSelected()
-    {
-        detectGround.Gizmo(transform, transform.localScale.x >= 0);
-    }
 
     void Alert()
     {
@@ -82,23 +75,16 @@ public class E1Master : MonoBehaviour
         }
 
         //Ir hacia el enemygo o atacar
-        RaycastHit2D[] hits = detectionBronya.Get();
-        if (hits == null || hits.Length == 0)
+        Move(positionBronya);
+
+        //Atacar
+        if (Time.time > time_coolDown)
         {
-            Move(positionBronya);
+            animator.SetTrigger(parameterAttack);
+            time_coolDown = Time.time + coolDown;
+            Attack(positionBronya);
         }
-        else
-        {
-            if (Time.time > time_coolDown)
-            {
-                animator.SetTrigger(parameterAttack);
-                foreach (RaycastHit2D hit in hits)
-                {
-                    hit.collider.transform.root.GetComponent<Bronya.Master>()?.stats.Damage(damage);
-                }
-                time_coolDown = Time.time + coolDown;
-            }
-        }
+        
 
     }
 
@@ -141,21 +127,32 @@ public class E1Master : MonoBehaviour
             }
         }
 
-        //Revisar terreno
-        if (dirx != 0 && detectGround.Detect(transform, dirx > 0))
-        {
-            Vector2 vel = rigid2D.velocity;
-            vel.x = dirx * velocity;
-            rigid2D.velocity = vel;
-            animator.SetBool(parameterWalk, true);
-        }
+        //Moverse
+        Vector2 fPos = new Vector2(obj.x, obj.y);
+        Vector2 iPos = transform.position;
+
+        fPos.y += distanciaBronya.y;
+
+        if (dirx >= 0)
+            fPos.x -= distanciaBronya.x;
         else
-        {
-            Vector2 vel = rigid2D.velocity;
-            vel.x = 0;
-            rigid2D.velocity = vel;
-            animator.SetBool(parameterWalk, false);
-        }
+            fPos.x += distanciaBronya.x;
+
+        Vector2 dir = fPos - iPos;
+        dir.Normalize();
+
+        rigid2D.velocity = dir * velocity;
+
+
+
+
+
+
+
+    }
+
+    void Attack(Vector2 position)
+    {
 
     }
 
@@ -169,46 +166,4 @@ public class E1Master : MonoBehaviour
     }
     #endregion
 
-    #region Clases
-    [System.Serializable]
-    public class DetectGround
-    {
-        public LayerMask layerGround;
-        public float distanceDetectGroundHorizontal = 0.3f;
-        public float distanceDetectGroundVertical = 0.3f;
-        public Vector2 offset = new Vector2(0, 0);
-
-        public bool Detect(Transform transform, bool right)
-        {
-            Vector2 origin = (Vector2)transform.position + offset;
-            Vector2 direction = right ? Vector2.right : Vector2.left;
-
-            RaycastHit2D hit = Physics2D.Raycast(origin, direction, distanceDetectGroundHorizontal, layerGround);
-            if (hit.collider != null) return false;
-
-            origin = origin + direction * distanceDetectGroundHorizontal;
-            direction = Vector2.down;
-
-            hit = Physics2D.Raycast(origin, direction, distanceDetectGroundVertical, layerGround);
-            if (hit.collider != null) return true;
-
-            return false;
-        }
-
-        public void Gizmo(Transform transform, bool right)
-        {
-            Vector2 origin = (Vector2)transform.position + offset;
-            Vector2 direction = right ? Vector2.right : Vector2.left;
-
-            Gizmos.color = Color.magenta;
-            Gizmos.DrawLine(origin, origin + direction * distanceDetectGroundHorizontal);
-
-            origin = origin + direction * distanceDetectGroundHorizontal;
-            direction = Vector2.down;
-
-            Gizmos.DrawLine(origin, origin + direction * distanceDetectGroundVertical);
-        }
-    }
-
-    #endregion
 }

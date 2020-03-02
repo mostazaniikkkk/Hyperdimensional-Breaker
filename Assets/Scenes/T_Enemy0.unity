@@ -808,6 +808,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Antorcha
       objectReference: {fileID: 0}
+    - target: {fileID: 3314039863107441497, guid: 597017dfb8054894bb84c211ceb962fb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1333027982114464567, guid: 597017dfb8054894bb84c211ceb962fb,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -876,6 +881,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Enemy0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3633893391516027219, guid: b4e97cee260663c448ec3b10cf410ea6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4783052333864260129, guid: b4e97cee260663c448ec3b10cf410ea6,
         type: 3}

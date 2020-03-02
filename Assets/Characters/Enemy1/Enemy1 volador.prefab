@@ -63,8 +63,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.5, y: 1}
+  m_Offset: {x: -0.1579198, y: 0.14037323}
+  m_Size: {x: 0.8158396, y: 1.2807465}
   m_Direction: 0
 --- !u!114 &6970791604108725472
 MonoBehaviour:
@@ -82,21 +82,12 @@ MonoBehaviour:
   maxTimeLost: 10
   damage: 30
   coolDown: 3
-  velocity: 1
-  detectGround:
-    layerGround:
-      serializedVersion: 2
-      m_Bits: 1
-    distanceDetectGroundHorizontal: 0.3
-    distanceDetectGroundVertical: 0.74
-    offset: {x: 0, y: 0}
+  velocity: 0.5
+  distanciaBronya: {x: 4, y: 2}
   animator: {fileID: 830994678896821564}
-  parameterWalk: Walk
-  parameterAlert: Alert
   parameterAttack: Attack
   rigid2D: {fileID: 3941185912103352634}
   capCollider: {fileID: 2578391451759784004}
-  detectionBronya: {fileID: 0}
 --- !u!95 &830994678896821564
 Animator:
   serializedVersion: 3
@@ -131,12 +122,12 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!1 &5765682658944680662
 GameObject:
   m_ObjectHideFlags: 0
